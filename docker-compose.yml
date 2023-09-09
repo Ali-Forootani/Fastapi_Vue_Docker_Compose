@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+
+  backend:
+    build: ./services/backend
+    ports:
+      - 5000:5000
+    volumes:
+      - backend-data:/app/results  # Define a named volume 'backend-data' and mount it to /app/results in the container
+      - ./local_results:/app/results  # Map a local directory 'local_results' to /app/results in the container
+    command: uvicorn src.main:app --reload --host 0.0.0.0 --port 5000
+
+  frontend:
+    build: ./services/frontend
+    volumes:
+      - './services/frontend:/app'
+      - '/app/node_modules'
+    ports:
+      - 8080:8080
+
+volumes:
+  backend-data:  # Define the named volume 'backend-data'
+
