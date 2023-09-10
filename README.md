@@ -49,7 +49,7 @@ To run this application just navigate to the directory that you download/clone t
 ```bash
 sudo docker-compose up --build
 ```
-
+If the docker image is built successefully you can get access to your frontend via ``http://localhost:8080/`` in the browser. Then you can see a page with two buttons one for uploading the `.dcm` picture and the other for makeing request to the backend `process image`. You can also set a threshold value as the input. Doing so you will see the results on the page. 
  
 
 ## What is FastAPI?
